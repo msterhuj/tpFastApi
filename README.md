@@ -43,8 +43,9 @@ docker-compose up
 
 These endpoints are only accessible by admin users
 
-- [ ] can update logs
-- [ ] can delete logs
+- [ ] Add authentication to the endpoint
+- [x] can update logs
+- [x] can delete logs
 
 ### Bonus 5 points
 

@@ -1,7 +1,7 @@
-from typing import Sequence
+from typing import Sequence, Type
 from pydantic import BaseModel
 
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from sqlmodel import Session, select
 from .models import User, Log, Severity
 from . import engine
@@ -11,12 +11,12 @@ app = FastAPI()
 
 
 @app.on_event("startup")
-def on_startup():
+def on_startup() -> None:
     create_db_and_tables(engine)
 
 
 @app.get("/")
-async def root():
+async def root() -> dict[str, str]:
     return {"message": "Hello World"}
 
 
@@ -52,8 +52,15 @@ class LogInsert(BaseModel):
     timestamp: int
 
 
+class LogUpdate(BaseModel):
+    host: str | None = None
+    service: str | None = None
+    message: str | None = None
+    timestamp: int | None = None
+
+
 @app.post("/logs/{severity}")
-def create_log(severity: Severity, log: LogInsert):
+def create_log(severity: Severity, log: LogInsert) -> Log:
     with Session(engine) as session:
         log = Log(
             host=log.host,
@@ -66,3 +73,28 @@ def create_log(severity: Severity, log: LogInsert):
         session.commit()
         session.refresh(log)
         return log
+
+
+@app.patch("/logs/{log_id}", response_model=Log)
+def update_log(log_id: int, log: LogUpdate) -> Type[Log] | None:
+    with Session(engine) as session:
+        db_log = session.get(Log, log_id)
+        if db_log is None:
+            raise HTTPException(status_code=404, detail="Log not found")
+        log_data = log.model_dump(exclude_unset=True)
+        db_log.sqlmodel_update(log_data)
+        session.add(db_log)
+        session.commit()
+        session.refresh(db_log)
+        return db_log
+
+
+@app.delete("/logs/{log_id}")
+def delete_log(log_id: int) -> dict[str, str]:
+    with Session(engine) as session:
+        db_log = session.get(Log, log_id)
+        if db_log is None:
+            raise HTTPException(status_code=404, detail="Log not found")
+        session.delete(db_log)
+        session.commit()
+        return {"message": "Log deleted"}
