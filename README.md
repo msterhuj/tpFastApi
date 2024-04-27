@@ -33,10 +33,11 @@ docker-compose up
 
 #### Syslog Endpoint 5 points
 
-- [ ] Create endpoint to
-  - [ ] Push log with severity
-  - [ ] Query log with filter on severity
-- [ ] Logs have datetime, ip / dns, severity, service, message
+- [ ] Add authentication to the endpoint
+- [x] Create endpoint to
+  - [x] Push log with severity
+  - [x] Query log with filter on severity
+- [x] Logs have datetime, ip / dns, severity, service, message
 
 #### Admin Endpoint 5 points
 
