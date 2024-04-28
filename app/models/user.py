@@ -1,6 +1,8 @@
 from enum import Enum
 from typing import Optional
 
+from passlib.context import CryptContext
+from pydantic import BaseModel
 from sqlmodel import Field, SQLModel
 
 
@@ -14,3 +16,10 @@ class User(SQLModel, table=True):
     name: str
     password: str
     role: Roles
+
+
+password_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
+
+def get_hashed_password(password: str) -> str:
+    return password_context.hash(password)
