@@ -29,7 +29,7 @@ docker-compose up
 - [ ] User can register (create user account)
 - [ ] User can log out
 - [ ] Add role user and admin
-- [ ] Create bootstrap script to create first admin user
+- [x] Create bootstrap script to create first admin user
 
 #### Syslog Endpoint 5 points
 
@@ -51,6 +51,6 @@ These endpoints are only accessible by admin users
 
 - [ ] 1 point: api test with postman
 - [ ] 1 point: web interface with framework of your choice
-- [ ] 1 point: Store password hashed
+- [x] 1 point: Store password hashed
 - [ ] 1 point: Documentation for how to set up the project
 - [ ] 1 point: Use real database (PostgresSQL, MySQL) and not SQLite
