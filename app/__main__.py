@@ -1,9 +1,17 @@
-import sys
-from app.models import User, get_hashed_password
-from . import engine
-from sqlmodel import Session, select
+"""
+This script create or update user password and give admin right
+this is not a part of the app, this is a helper script to initialize the app
+"""
+
+from sys import argv
 from secrets import choice
 from string import digits, ascii_letters, ascii_lowercase, ascii_uppercase
+
+from sqlmodel import Session, select
+
+from . import engine
+from .database import create_db_and_tables
+from app.models import User, get_hashed_password
 
 keys = digits + ascii_uppercase + ascii_lowercase + ascii_letters
 
@@ -15,15 +23,14 @@ def random_password(size: int):
     return password
 
 
-
 def main() -> None:
     print("This script create or update user password and give admin right")
-    if len(sys.argv) == 1:
+    if len(argv) == 1:
         print("Please provide username to create")
         return
     input("Press enter to continue")
     rand_pass = random_password(12)
-    username = sys.argv[1]
+    username = argv[1]
     print("Press enter to set random pass")
     password = input("Set pass > ") or rand_pass
     password_confirm = input("Confirm pass > ") or rand_pass
@@ -50,6 +57,5 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    from .database import create_db_and_tables
     create_db_and_tables(engine)
     main()
