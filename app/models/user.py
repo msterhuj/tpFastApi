@@ -1,8 +1,6 @@
-from enum import Enum
 from typing import Optional
 
 import hashlib
-from pydantic import BaseModel
 from sqlmodel import Field, SQLModel
 from datetime import datetime
 
