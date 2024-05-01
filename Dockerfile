@@ -23,7 +23,8 @@ WORKDIR /app
 
 ## Copy the requirements.txt file from the builder stage and install the dependencies
 COPY --from=builder /app/requirements.txt .
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
+ENV PATH="/home/app/.local/bin:${PATH}"
 
 ## Copy the rest of the application
 COPY . .

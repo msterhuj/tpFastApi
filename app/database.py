@@ -1,15 +1,20 @@
 from sqlalchemy import Engine
 from sqlmodel import create_engine, SQLModel
-
-sqlite_file_name = "database.db"
-sqlite_url = f"sqlite:///{sqlite_file_name}"
-
-connect_args = {"check_same_thread": False}
+from os import environ
 
 
 def init_engine() -> Engine:
-    return create_engine(sqlite_url, echo=True, connect_args=connect_args)
+    """
+    Initialize the database engine
+    :return: Engine object
+    """
+    return create_engine(environ.get("DB_URI"), echo=True)
 
 
-def create_db_and_tables(engine: Engine):
+def create_db_and_tables(engine: Engine) -> None:
+    """
+    Create the database and tables
+    :param engine: Engine object
+    :return: None
+    """
     SQLModel.metadata.create_all(engine)

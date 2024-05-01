@@ -1,0 +1,24 @@
+version: "3.3"
+
+services:
+  mariadb:
+    image: mariadb
+    env_file:
+      - .env
+#    > uncomment the following lines to expose the port
+#    ports:
+#      - "3306:3306"
+#    > decoment the following lines to persist data
+#    volumes:
+#      - ./data:/var/lib/mysql
+
+  api:
+    build:
+        context: .
+        dockerfile: Dockerfile
+    env_file:
+      - .env
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mariadb

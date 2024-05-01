@@ -5,14 +5,31 @@
 Create a `.env` file in the root of the project with the following content:
 
 ```shell
-DATABASE_URL=sqlite:///./test.db
+MYSQL_ROOT_PASSWORD=root
+MYSQL_DATABASE=fastapi
+MYSQL_USER=fastapi
+MYSQL_PASSWORD=fastapi
+DB_URI=mysql+pymysql://fastapi:fastapi@mariadb:3306/fastapi
 ```
+
+or customize the values on docker compose file
 
 ## Run the project
 
 ```shell
-docker compose up
+# start the project
+docker compose up -d
+
+# in some cases, the database is not ready when the api is starting
+# you can restart the api container
+docker compose restart api
+
+# Create the first admin user or update user password and set admin role
+docker compose exec api python -m app [USER]
 ```
+
+You can now access the api at `http://localhost:8081`
+Docs are available at `http://localhost:8081/docs`
 
 ## Work asked by the teacher
 
@@ -50,7 +67,7 @@ These endpoints are only accessible by admin users
 ### Bonus 5 points
 
 - [ ] 1 point: api test with postman
-- [ ] 1 point: web interface with framework of your choice
+- [ ] 1 point: web interface with framework of your choice (waaa la flemme)
 - [x] 1 point: Store password hashed
-- [ ] 1 point: Documentation for how to set up the project
-- [ ] 1 point: Use real database (PostgresSQL, MySQL) and not SQLite
+- [x] 1 point: Documentation for how to set up the project
+- [x] 1 point: Use real database (PostgresSQL, MySQL) and not SQLite

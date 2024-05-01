@@ -13,6 +13,9 @@ router = APIRouter()
 
 
 class UserCreate(BaseModel):
+    """
+    UserCreate is a Pydantic model that represents the data required to create a new user.
+    """
     name: str
     password: str
     password_confirm: str
@@ -20,6 +23,11 @@ class UserCreate(BaseModel):
 
 @router.get("/users/", tags=["users"])
 def read_users(credentials: Annotated[HTTPBasicCredentials, Depends(security)]) -> Sequence[User]:
+    """
+    read_users is a FastAPI route that returns all users. Requires authentication.
+    :param credentials: The credentials of the user.
+    :return: A list of all users.
+    """
     if not is_admin(credentials):
         raise HTTPException(status_code=401, detail="Unauthorized")
     with Session(engine) as session:
@@ -29,6 +37,11 @@ def read_users(credentials: Annotated[HTTPBasicCredentials, Depends(security)]) 
 
 @router.post("/users/register", tags=["users"])
 def create_user(user: UserCreate):
+    """
+    create_user is a FastAPI route that creates a new user.
+    :param user: The data required to create a new user.
+    :return: The created user information.
+    """
     if user.password != user.password_confirm:
         raise HTTPException(status_code=400, detail="Passwords do not match")
     with Session(engine) as session:
