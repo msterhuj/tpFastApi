@@ -1,3 +1,4 @@
+from datetime import datetime
 from typing import Sequence, Type, Annotated
 
 from fastapi import APIRouter, HTTPException, Depends
@@ -83,7 +84,7 @@ def create_log(severity: Severity, log: LogInsert, credentials: Annotated[HTTPBa
             service=log.service,
             message=log.message,
             severity=severity,
-            timestamp=log.timestamp,
+            timestamp=datetime.fromtimestamp(log.timestamp)
         )
         session.add(log)
         session.commit()

@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from sqlalchemy import TEXT, Column
 from sqlmodel import Field, SQLModel
 from enum import Enum
@@ -21,4 +23,4 @@ class Log(SQLModel, table=True):
     service: str = Field(nullable=False)
     message: str = Field(sa_column=Column(TEXT))
     severity: Severity = Field(nullable=False)
-    timestamp: int = Field(nullable=False)
+    timestamp: datetime = Field(nullable=False)
