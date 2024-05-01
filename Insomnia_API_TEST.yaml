@@ -1,0 +1,341 @@
+_type: export
+__export_format: 4
+__export_date: 2024-05-01T19:47:07.571Z
+__export_source: insomnia.desktop.app:v8.6.1
+resources:
+  - _id: req_f5051b261b154458b1854b7bf76546c4
+    parentId: fld_e0ba7aa9adf840b3a7443fcfb110e708
+    modified: 1714592684361
+    created: 1714592639371
+    url: "{{ _.host }}/users"
+    name: All users
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/8.6.1
+    authentication:
+      type: basic
+      useISO88591: false
+      disabled: false
+      username: admin
+      password: admin
+    metaSortKey: -1714592654913
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_e0ba7aa9adf840b3a7443fcfb110e708
+    parentId: wrk_4214ba62e1d04c48abee1129e8c80dba
+    modified: 1714592636107
+    created: 1714592636107
+    name: Users Endpoint
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1714592636107
+    _type: request_group
+  - _id: wrk_4214ba62e1d04c48abee1129e8c80dba
+    parentId: null
+    modified: 1714591686838
+    created: 1714591686838
+    name: FastAPI
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_17ffc7b2f359473b993aa7bfe0ded555
+    parentId: fld_e0ba7aa9adf840b3a7443fcfb110e708
+    modified: 1714592728621
+    created: 1714592706053
+    url: "{{ _.host }}/users/register"
+    name: Register
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "string",
+          "password": "string",
+          "password_confirm": "string"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/8.6.1
+    authentication:
+      type: basic
+      useISO88591: false
+      disabled: false
+      username: admin
+      password: admin
+    metaSortKey: -1714592628313
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_bfda8da8fb574fc6bb6cf25ecd511fe4
+    parentId: fld_3f4e401606064c3eacd3bc3558ee4d06
+    modified: 1714592601742
+    created: 1714591692259
+    url: "{{ _.host }}/logs"
+    name: All Logs
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/8.6.1
+    authentication:
+      type: basic
+      useISO88591: false
+      disabled: false
+      username: admin
+      password: admin
+    metaSortKey: -1714592601713
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_3f4e401606064c3eacd3bc3558ee4d06
+    parentId: wrk_4214ba62e1d04c48abee1129e8c80dba
+    modified: 1714592596055
+    created: 1714592596055
+    name: Logs Endpoint
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1714592596055
+    _type: request_group
+  - _id: req_e8efca49e9cb40ea9bca39b47a2f1610
+    parentId: fld_3f4e401606064c3eacd3bc3558ee4d06
+    modified: 1714592603625
+    created: 1714591807167
+    url: "{{ _.host }}/logs/info"
+    name: Log filter info
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/8.6.1
+    authentication:
+      type: basic
+      useISO88591: false
+      disabled: false
+      username: admin
+      password: admin
+    metaSortKey: -1714592601613
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_acc5a23b92ac440aa7fbbb8913dfd981
+    parentId: fld_3f4e401606064c3eacd3bc3558ee4d06
+    modified: 1714592608328
+    created: 1714591835803
+    url: "{{ _.host }}/logs/warning"
+    name: Log filter warning
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/8.6.1
+    authentication:
+      type: basic
+      useISO88591: false
+      disabled: false
+      username: admin
+      password: admin
+    metaSortKey: -1714592601513
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_dc160d4010b74df7959002e43b51e305
+    parentId: fld_3f4e401606064c3eacd3bc3558ee4d06
+    modified: 1714592610842
+    created: 1714591848929
+    url: "{{ _.host }}/logs/error"
+    name: Log filter error
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/8.6.1
+    authentication:
+      type: basic
+      useISO88591: false
+      disabled: false
+      username: admin
+      password: admin
+    metaSortKey: -1714592601413
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_a4dd9d2859424fb08b071774372da0b5
+    parentId: fld_3f4e401606064c3eacd3bc3558ee4d06
+    modified: 1714592613362
+    created: 1714591882084
+    url: "{{ _.host }}/logs/error"
+    name: Log
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "host": "winclose",
+          "service": "syslog",
+          "message": "ERROR: syslog crashed",
+        	"timestamp": {% now 'unix', '' %}
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/8.6.1
+    authentication:
+      type: basic
+      useISO88591: false
+      disabled: false
+      username: admin
+      password: admin
+    metaSortKey: -1714592601313
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_70d648ab494246078f9e6901d7656257
+    parentId: fld_3f4e401606064c3eacd3bc3558ee4d06
+    modified: 1714592769508
+    created: 1714592506668
+    url: "{{ _.host }}/logs/1"
+    name: Log
+    description: ""
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "message": "ERROR: syslog crashed and rebooted"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/8.6.1
+    authentication:
+      type: basic
+      useISO88591: false
+      disabled: false
+      username: admin
+      password: admin
+    metaSortKey: -1714592601213
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_ac40a824fbf2464d80e4640c099138cb
+    parentId: fld_3f4e401606064c3eacd3bc3558ee4d06
+    modified: 1714592783324
+    created: 1714592568943
+    url: "{{ _.host }}/logs/1"
+    name: Log
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/8.6.1
+    authentication:
+      type: basic
+      useISO88591: false
+      disabled: false
+      username: admin
+      password: admin
+    metaSortKey: -1714592601113
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_1e52137bfe63f8d30e8fcae17c90a8264e4166d0
+    parentId: wrk_4214ba62e1d04c48abee1129e8c80dba
+    modified: 1714592349722
+    created: 1714591686841
+    name: Base Environment
+    data:
+      host: http://localhost:8081
+    dataPropertyOrder:
+      "&":
+        - host
+    color: null
+    isPrivate: false
+    metaSortKey: 1714591686841
+    _type: environment
+  - _id: jar_1e52137bfe63f8d30e8fcae17c90a8264e4166d0
+    parentId: wrk_4214ba62e1d04c48abee1129e8c80dba
+    modified: 1714591686842
+    created: 1714591686842
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar

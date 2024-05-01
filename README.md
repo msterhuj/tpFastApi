@@ -14,6 +14,9 @@ DB_URI=mysql+pymysql://fastapi:fastapi@mariadb:3306/fastapi
 
 You can change the values or customize the values on docker compose file
 
+To test the api use [Insomnia](https://insomnia.rest/) and import the file `Insomnia_API_TEST.yaml`
+For the test you need to create a user with the username `admin` and password `admin` (use the bootstrap script to create the user)
+
 ## Run the project
 
 ```shell
@@ -66,7 +69,7 @@ These endpoints are only accessible by admin users
 
 ### Bonus 5 points
 
-- [ ] 1 point: api test with postman
+- [x] 1 point: api test with postman
 - [ ] 1 point: web interface with framework of your choice (waaa la flemme)
 - [x] 1 point: Store password hashed
 - [x] 1 point: Documentation for how to set up the project
