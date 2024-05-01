@@ -11,7 +11,7 @@ DATABASE_URL=sqlite:///./test.db
 ## Run the project
 
 ```shell
-docker-compose up
+docker compose up
 ```
 
 ## Work asked by the teacher
@@ -25,15 +25,15 @@ docker-compose up
 
 #### Authentication Endpoint 5 points
 
-- [ ] User can log in
-- [ ] User can register (create user account)
-- [ ] User can log out
-- [ ] Add role user and admin
+- [x] User can log in (basic auth, user login on every request)
+- [x] User can register
+- [x] User can log out (we use basic auth, so we can just forget the user)
+- [x] Add role user and admin
 - [x] Create bootstrap script to create first admin user
 
 #### Syslog Endpoint 5 points
 
-- [ ] Add authentication to the endpoint
+- [x] Add user authentication to the endpoint
 - [x] Create endpoint to
   - [x] Push log with severity
   - [x] Query log with filter on severity
@@ -43,7 +43,7 @@ docker-compose up
 
 These endpoints are only accessible by admin users
 
-- [ ] Add authentication to the endpoint
+- [x] Add admin authentication to the endpoint
 - [x] can update logs
 - [x] can delete logs
 

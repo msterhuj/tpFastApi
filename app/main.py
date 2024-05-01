@@ -1,7 +1,9 @@
 from fastapi import FastAPI
 
+
 from . import engine, views
 from .database import create_db_and_tables
+
 
 app = FastAPI()
 
