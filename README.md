@@ -12,7 +12,7 @@ MYSQL_PASSWORD=fastapi
 DB_URI=mysql+pymysql://fastapi:fastapi@mariadb:3306/fastapi
 ```
 
-or customize the values on docker compose file
+You can change the values or customize the values on docker compose file
 
 ## Run the project
 
@@ -25,7 +25,7 @@ docker compose up -d
 docker compose restart api
 
 # Create the first admin user or update user password and set admin role
-docker compose exec api python -m app [USER]
+docker compose exec api python -m app [username]
 ```
 
 You can now access the api at `http://localhost:8081`

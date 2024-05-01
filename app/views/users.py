@@ -21,8 +21,17 @@ class UserCreate(BaseModel):
     password_confirm: str
 
 
+class UserShow(BaseModel):
+    """
+    UserList is a Pydantic model that represents a list of users.
+    """
+    name: str
+    is_admin: bool
+    id: int
+
+
 @router.get("/users/", tags=["users"])
-def read_users(credentials: Annotated[HTTPBasicCredentials, Depends(security)]) -> Sequence[User]:
+def read_users(credentials: Annotated[HTTPBasicCredentials, Depends(security)], response_model=list[UserShow]) -> Sequence[UserShow]:
     """
     read_users is a FastAPI route that returns all users. Requires authentication.
     :param credentials: The credentials of the user.
